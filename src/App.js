@@ -16,6 +16,7 @@ function App() {
   const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
   const [mapZoom, setMapZoom] = useState(3);
   const [mapCountries, setMapCountries] = useState([])
+  const [casesType, setCasesType] = useState('cases')
 
   useEffect(() => {
     fetch('https://disease.sh/v3/covid-19/all')
@@ -45,6 +46,7 @@ function App() {
       })
     }
     getCountriesData()
+    
   }, [])
 
   const onCountryChange = async (event) => {
@@ -87,12 +89,27 @@ function App() {
         </div>
 
         <div className="app__stats">
-              <InfoBox title="Coronavirus cases" cases={prettyPrintStat(countryInfo.todayCases)} total={prettyPrintStat(countryInfo.cases)}/>
-              <InfoBox title="Recovered" cases={prettyPrintStat(countryInfo.todayRecovered)} total={prettyPrintStat(countryInfo.recovered)}/>
-              <InfoBox title="Death" cases={prettyPrintStat(countryInfo.todayDeaths)} total={prettyPrintStat(countryInfo.deaths)}/>
+              <InfoBox 
+                onClick={() => setCasesType('cases')}
+                title="Coronavirus cases" 
+                cases={prettyPrintStat(countryInfo.todayCases)} 
+                total={prettyPrintStat(countryInfo.cases)}
+              />
+              <InfoBox 
+                onClick={() => setCasesType('recovered')}
+                title="Recovered" 
+                cases={prettyPrintStat(countryInfo.todayRecovered)} 
+                total={prettyPrintStat(countryInfo.recovered)}
+              />
+              <InfoBox 
+                onClick={() => setCasesType('deaths')}
+                title="Deaths" 
+                cases={prettyPrintStat(countryInfo.todayDeaths)} 
+                total={prettyPrintStat(countryInfo.deaths)}
+              />
         </div>
 
-        <Map countries={mapCountries} center={mapCenter} zoom={mapZoom}/>
+        <Map  countries={mapCountries} center={mapCenter} zoom={mapZoom} casesType={casesType}/>
       </div>
 
       <Card className="app__right">
