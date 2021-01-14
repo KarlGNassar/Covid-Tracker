@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Line } from 'react-chartjs-2'
 import numeral from 'numeral'
 
-function LineGraph({ casesType='cases' }) {
+function LineGraph({ casesType='cases', ...props }) {
     const options = {
         legend: {
           display: false,
@@ -79,7 +79,7 @@ function LineGraph({ casesType='cases' }) {
     }, [casesType])
 
     return (
-        <div className="lineGraph">
+        <div className={props.class}>
             {data?.length > 0 && (
                 <Line
                     options={options}

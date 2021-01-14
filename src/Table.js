@@ -7,14 +7,14 @@ function Table({ countries }) {
         <div className="table">
             {
                 countries.map(({country, cases}) => (
-                    <table>
-                        <tbody>
+                    // <table>
+                    //     <tbody>
                             <tr>
                                 <td>{country}</td>
                                 <td><strong>{numeral(cases).format("0,0")}</strong></td>
                             </tr>
-                        </tbody>
-                    </table>
+                        //</div> </tbody>
+                    //</table>
                 ))
             }
         </div>
