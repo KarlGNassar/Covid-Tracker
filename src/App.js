@@ -4,7 +4,7 @@ import { FormControl, MenuItem, Select, Card, CardContent } from '@material-ui/c
 import InfoBox from './InfoBox'
 import Map from './Map';
 import Table from './Table'
-import { sortData } from './util'
+import { sortData, prettyPrintStat } from './util'
 import LineGraph from './LineGraph';
 import 'leaflet/dist/leaflet.css'
 
@@ -87,9 +87,9 @@ function App() {
         </div>
 
         <div className="app__stats">
-              <InfoBox title="Coronavirus cases" cases={countryInfo.todayCases} total={countryInfo.cases}/>
-              <InfoBox title="Recovered" cases={countryInfo.todayRecovered} total={countryInfo.recovered}/>
-              <InfoBox title="Death" cases={countryInfo.todayDeaths} total={countryInfo.deaths}/>
+              <InfoBox title="Coronavirus cases" cases={prettyPrintStat(countryInfo.todayCases)} total={prettyPrintStat(countryInfo.cases)}/>
+              <InfoBox title="Recovered" cases={prettyPrintStat(countryInfo.todayRecovered)} total={prettyPrintStat(countryInfo.recovered)}/>
+              <InfoBox title="Death" cases={prettyPrintStat(countryInfo.todayDeaths)} total={prettyPrintStat(countryInfo.deaths)}/>
         </div>
 
         <Map countries={mapCountries} center={mapCenter} zoom={mapZoom}/>
