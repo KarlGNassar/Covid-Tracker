@@ -14,7 +14,7 @@ function App() {
   const [countryInfo, setCountryInfo] = useState({})
   const [tableData, setTableData] = useState([])
   const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
-  const [mapZoom, setMapZoom] = useState(3);
+  const [mapZoom, setMapZoom] = useState(2);
   const [mapCountries, setMapCountries] = useState([])
   const [casesType, setCasesType] = useState('cases')
 
@@ -62,8 +62,13 @@ function App() {
         setCountry(countryCode)
         setCountryInfo(data)
 
-        setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-        setMapZoom(4);
+        if(countryCode === 'worldwide') {
+          setMapCenter({ lat: 34.80746, lng: -40.4796 })
+          setMapZoom(4)
+        } else {
+          setMapCenter([data.countryInfo.lat, data.countryInfo.long])
+          setMapZoom(4)
+        }
       })
   }
 
@@ -80,8 +85,8 @@ function App() {
             >
               <MenuItem value="worldwide">Worldwide</MenuItem>
               {
-                countries.map(country => (
-                  <MenuItem value={country.value}>{country.name}</MenuItem>
+                countries.map((country, i) => (
+                  <MenuItem key={i} value={country.value}>{country.name}</MenuItem>
                 ))
               }
             </Select>  
