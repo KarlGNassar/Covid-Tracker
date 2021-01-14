@@ -17,7 +17,7 @@ function LineGraph({ casesType='cases' }) {
           mode: "index",
           intersect: false,
           callbacks: {
-            label: function (tooltipItem, data) {
+            label: function (tooltipItem) {
               return numeral(tooltipItem.value).format("+0,0");
             },
           },
@@ -38,7 +38,7 @@ function LineGraph({ casesType='cases' }) {
                 display: false,
               },
               ticks: {
-                callback: function (value, index, values) {
+                callback: function (value) {
                   return numeral(value).format("0a");
                 },
               },
