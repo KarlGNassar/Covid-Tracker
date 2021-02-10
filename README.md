@@ -1,8 +1,8 @@
-<h1 align="center">Covid-19 Tracker</h1>
+<h1 align="center">Chat App</h1>
 
 <div align="center">
   <h3>
-    <a href="https://covid-19-tracker-1861b.web.app/">
+    <a href="https://chat-mern-ae2c1.firebaseapp.com/">
       Demo
     </a>
   </h3>
@@ -15,12 +15,14 @@
 ### Built With
 
 - [React](https://reactjs.org/)
-- [disease.sh API](https://disease.sh/)
-- [CSS3](https://developer.mozilla.org/en-US/docs/Archive/CSS3)
+- [MongoDB](https://www.mongodb.com/3)
+- [Express](https://expressjs.com/)
+- [Nodejs](https://nodejs.org/en/)
+- [Pusher](https://pusher.com/)
 
 ## Features
 
-During the pandemic, numbers of cases were skyrocketing so I decided to create this tracker to show the danger of this virus and how it can easily spread.
+Saw a tutorial on youtube doing a chat with firestore (firebase's real time db) and wanted to try it out with the MERN stack with the help of Puhser.
 
 ## How To Use
 
